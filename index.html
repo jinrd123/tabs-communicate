@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button class="remove">取消监听2.html的消息</button>
+<a href="./2.html" target="_blank">打开子页面2.html</a>
+<script type="module">
+    import {listenMsg} from "./index.js";
+    const callback = function(data) {
+        console.log('收到2.html标签页的data：', data);
+    }
+    const remove = listenMsg(callback);
+    const btn = document.querySelector('.remove');
+    btn.addEventListener('click', remove);
+</script>
+</body>
+</html>
